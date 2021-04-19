@@ -10,10 +10,24 @@
     integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
 </head>
 
-<body>
-<h1>
-  Chat on Socket.io
-</h1>
+<body class="bg-info">
+  <div class="container">
+    <h1>Chat on Socket.io</h1>
+
+    <div class="card w-75 mb-4">
+      <div class="card-body">
+        <h6 class="card-title">Дата и время</h6>
+        <p class="card-text">Текст сообщения</p>
+      </div>
+    </div>
+
+    <form>
+      <div class="input-group mb-3">
+        <input type="text" class="form-control" placeholder="Введите сообщение" name="messageInput">
+        <button class="btn btn-secondary" type="submit">Отправить</button>
+      </div>
+    </form>
+  </div>
 </body>
 
 </html>
