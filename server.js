@@ -1,8 +1,12 @@
 // const express = require('express') // CommonJS module
-import express from 'express' // ESM - ES module
+import express from 'express'; // ESM - ES module
 import path from 'path';
+import { createServer } from "http";
+import { Server } from "socket.io";
 
 const app = express();
+const httpServer = createServer(app);
+const io = new Server(httpServer, {});
 
 const router = express.Router();
 app.use(router);
@@ -18,6 +22,9 @@ router.route('/')
     res.sendFile(staticDir, 'index.html')
   });
 
-app.listen(3000, () => {
+io.on("connection", (socket) => {});
+  console.log('Connection established');
+  
+httpServer.listen(3000, () => {
   console.log('Server started on 3000');
 });
