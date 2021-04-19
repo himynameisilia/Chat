@@ -25,12 +25,8 @@ router.route('/')
 io.on("connection", (socket) => {
   console.log('Connection established');
 
-  socket.emit('fromServer', {
-    text: 'Qwerty', timestamp: '2021-04-19'
-  });
-  
   socket.on('fromClient', (message) => {
-    console.log(message);
+    socket.emit('fromServer', message);
   });
 });
 
