@@ -22,9 +22,19 @@ router.route('/')
     res.sendFile(staticDir, 'index.html')
   });
 
-io.on("connection", (socket) => {});
+io.on("connection", (socket) => {
   console.log('Connection established');
+
+  socket.emit('fromServer', {
+    text: 'Qwerty', timestamp: '2021-04-19'
+  });
   
+  socket.on('fromClient', (message) => {
+    console.log(message);
+  });
+});
+
+
 httpServer.listen(3000, () => {
   console.log('Server started on 3000');
 });
